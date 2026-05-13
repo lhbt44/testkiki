@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Espace — MotoSalon Paris 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--near-black:#111114;--dark:#1a1a1f;--mid:#2a2a32;--chrome:#8a8a9a;--chrome-light:#c4c4d0;--white:#f8f8f6;--red:#c0392b;--gold:#b8960c;--success:#27ae60;--info:#2980b9;--warn:#e67e22;--font-display:'Playfair Display',serif;--font-body:'Barlow',sans-serif;--font-cond:'Barlow Condensed',sans-serif;--tr:0.25s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--near-black);color:var(--white);font-family:var(--font-body);font-weight:300;min-height:100vh;}
+
+/* ── LOGIN SCREEN ── */
+.login-wrap{min-height:100vh;display:flex;align-items:stretch;}
+.login-left{flex:1;background:linear-gradient(160deg,#0a0a0a,#1a0f0f);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;position:relative;overflow:hidden;}
+.login-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 40%,rgba(192,57,43,0.12),transparent 70%);}
+.login-left-content{position:relative;z-index:1;text-align:center;max-width:400px;}
+.login-logo-mark{width:72px;height:72px;border:2px solid var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--red);margin:0 auto 2rem;}
+.login-event-title{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1rem;}
+.login-event-title em{color:var(--chrome-light);font-style:italic;}
+.login-event-date{font-family:var(--font-cond);font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:var(--chrome);margin-bottom:3rem;}
+.login-features{display:flex;flex-direction:column;gap:1rem;text-align:left;}
+.login-feat{display:flex;align-items:center;gap:12px;font-size:0.88rem;color:var(--chrome-light);}
+.login-feat-dot{width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0;}
+
+.login-right{width:480px;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;border-left:1px solid rgba(255,255,255,0.06);}
+.login-form-box{width:100%;max-width:360px;}
+.login-form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.login-form-sub{font-size:0.88rem;color:var(--chrome-light);margin-bottom:2rem;}
+.type-toggle{display:flex;gap:0;border:1px solid rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;margin-bottom:2rem;}
+.type-btn{flex:1;padding:0.7rem;font-family:var(--font-cond);font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;background:transparent;border:none;color:var(--chrome);cursor:pointer;transition:all var(--tr);}
+.type-btn.active{background:var(--red);color:var(--white);}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;}
+.form-label{font-family:var(--font-cond);font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--chrome);}
+.form-input{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.8rem 1rem;font-family:var(--font-body);font-size:0.9rem;color:var(--white);transition:border-color var(--tr);width:100%;}
+.form-input:focus{outline:none;border-color:rgba(192,57,43,0.5);background:rgba(255,255,255,0.06);}
+.form-input::placeholder{color:var(--chrome);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:0.65rem 1.5rem;font-family:var(--font-cond);font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:none;border-radius:2px;cursor:pointer;transition:all var(--tr);}
+.btn-primary{background:var(--red);color:var(--white);border:1px solid var(--red);width:100%;justify-content:center;padding:0.9rem;}
+.btn-primary:hover{background:#a93226;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--chrome-light);border:1px solid rgba(255,255,255,0.15);}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.3);}
+.login-links{display:flex;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:0.5rem;}
+.login-link{font-family:var(--font-cond);font-size:10px;letter-spacing:0.1em;color:var(--chrome);text-decoration:none;cursor:pointer;transition:color var(--tr);}
+.login-link:hover{color:var(--white);}
+.login-divider{display:flex;align-items:center;gap:12px;margin:1.5rem 0;font-family:var(--font-cond);font-size:9px;letter-spacing:0.2em;color:var(--chrome);text-transform:uppercase;}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07);}
+
+/* ── DASHBOARD ── */
+.dashboard{display:none;min-height:100vh;}
+.dash-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;}
+
+/* Sidebar */
+.dash-sidebar{background:var(--black);border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;width:260px;z-index:100;overflow-y:auto;}
+.dash-sidebar-header{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.dash-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:1.2rem;}
+.dash-logo-mark{width:32px;height:32px;border:1.5px solid var(--red);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--red);}
+.dash-logo-text{font-family:var(--font-cond);font-size:13px;font-weight:700;letter-spacing:0.1em;color:var(--white);text-transform:uppercase;}
+.user-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1rem;}
+.user-avatar{width:40px;height:40px;background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--red);margin-bottom:0.7rem;}
+.user-name{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);letter-spacing:0.05em;}
+.user-type{font-family:var(--font-cond);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:2px 8px;border-radius:1px;margin-top:4px;display:inline-block;}
+.user-type.visiteur{background:rgba(41,128,185,0.15);border:1px solid rgba(41,128,185,0.3);color:var(--info);}
+.user-type.pro{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);color:var(--red);}
+
+.dash-nav{padding:1rem 0;flex:1;}
+.nav-section{padding:0.5rem 1.5rem;margin-bottom:0.3rem;}
+.nav-section-label{font-family:var(--font-cond);font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--chrome);margin-bottom:0.5rem;padding-left:0.5rem;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:0.65rem 0.8rem;border-radius:2px;cursor:pointer;transition:all var(--tr);text-decoration:none;position:relative;}
+.nav-item:hover{background:rgba(255,255,255,0.04);}
+.nav-item.active{background:rgba(192,57,43,0.08);border-left:2px solid var(--red);}
+.nav-item svg{width:16px;height:16px;stroke:var(--chrome);fill:none;stroke-width:1.5;flex-shrink:0;transition:stroke var(--tr);}
+.nav-item:hover svg,.nav-item.active svg{stroke:var(--white);}
+.nav-item-label{font-family:var(--font-cond);font-size:12px;font-weight:500;letter-spacing:0.08em;color:var(--chrome-light);transition:color var(--tr);}
+.nav-item:hover .nav-item-label,.nav-item.active .nav-item-label{color:var(--white);}
+.nav-badge{position:absolute;right:0.8rem;min-width:18px;height:18px;background:var(--red);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--font-cond);font-size:9px;font-weight:600;color:var(--white);padding:0 4px;}
+
+.dash-sidebar-footer{padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);}
+.sidebar-logout{display:flex;align-items:center;gap:10px;cursor:pointer;padding:0.5rem;border-radius:2px;transition:background var(--tr);}
+.sidebar-logout:hover{background:rgba(255,255,255,0.04);}
+.sidebar-logout svg{width:16px;height:16px;stroke:var(--chrome);fill:none;stroke-width:1.5;}
+.sidebar-logout span{font-family:var(--font-cond);font-size:11px;letter-spacing:0.1em;color:var(--chrome);}
+
+/* Main content */
+.dash-main{margin-left:260px;padding:2.5rem;min-height:100vh;}
+.dash-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;}
+.dash-page-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);}
+.dash-page-sub{font-family:var(--font-cond);font-size:11px;letter-spacing:0.1em;color:var(--chrome);margin-top:4px;}
+.topbar-actions{display:flex;gap:10px;align-items:center;}
+.notif-btn{width:36px;height:36px;border:1px solid rgba(255,255,255,0.1);border-radius:2px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:border-color var(--tr);}
+.notif-btn:hover{border-color:rgba(255,255,255,0.2);}
+.notif-btn svg{width:16px;height:16px;stroke:var(--chrome-light);fill:none;stroke-width:1.5;}
+.notif-dot{position:absolute;top:6px;right:6px;width:6px;height:6px;background:var(--red);border-radius:50%;}
+
+/* Panels */
+.dash-panel{display:none;}
+.dash-panel.active{display:block;}
+
+/* Stats row */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem;}
+.stat-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:8px;transition:border-color var(--tr);}
+.stat-card:hover{border-color:rgba(255,255,255,0.1);}
+.stat-icon{width:36px;height:36px;border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;}
+.stat-icon svg{width:18px;height:18px;fill:none;stroke-width:1.5;}
+.stat-icon.red{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);}
+.stat-icon.red svg{stroke:var(--red);}
+.stat-icon.blue{background:rgba(41,128,185,0.1);border:1px solid rgba(41,128,185,0.2);}
+.stat-icon.blue svg{stroke:var(--info);}
+.stat-icon.green{background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);}
+.stat-icon.green svg{stroke:var(--success);}
+.stat-icon.gold{background:rgba(184,150,12,0.1);border:1px solid rgba(184,150,12,0.2);}
+.stat-icon.gold svg{stroke:var(--gold);}
+.stat-value{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--white);line-height:1;}
+.stat-label{font-family:var(--font-cond);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--chrome);}
+
+/* QR ticket card */
+.ticket-main-card{background:var(--dark);border:1px solid rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;margin-bottom:1.5rem;}
+.ticket-card-header{background:var(--red);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.ticket-card-header-left{}
+.ticket-type-label{font-family:var(--font-cond);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:4px;}
+.ticket-type-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--white);}
+.ticket-card-body{padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+.ticket-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.ticket-info-item{}
+.ti-label{font-family:var(--font-cond);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--chrome);margin-bottom:3px;}
+.ti-value{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);}
+.qr-wrap{width:120px;height:120px;background:var(--white);border-radius:4px;padding:8px;flex-shrink:0;}
+.qr-code{width:100%;height:100%;background:repeating-linear-gradient(0deg,#000 0px,#000 3px,#fff 3px,#fff 6px),repeating-linear-gradient(90deg,#000 0px,#000 3px,#fff 3px,#fff 6px);background-blend-mode:difference;}
+.ticket-card-footer{padding:1rem 2rem;background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between;}
+.ticket-num{font-family:var(--font-cond);font-size:11px;letter-spacing:0.2em;color:var(--chrome);}
+
+/* Notification items */
+.notif-list{display:flex;flex-direction:column;gap:8px;}
+.notif-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:4px;padding:1rem 1.2rem;display:flex;gap:1rem;align-items:flex-start;cursor:pointer;transition:background var(--tr);}
+.notif-item:hover{background:rgba(255,255,255,0.04);}
+.notif-item.unread{border-left:2px solid var(--red);}
+.notif-dot{width:8px;height:8px;background:var(--red);border-radius:50%;flex-shrink:0;margin-top:5px;}
+.notif-dot.read{background:transparent;border:1px solid var(--chrome);}
+.notif-content{}
+.notif-title{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.notif-body{font-size:0.83rem;color:var(--chrome-light);}
+.notif-time{font-family:var(--font-cond);font-size:9px;letter-spacing:0.1em;color:var(--chrome);margin-top:4px;text-transform:uppercase;}
+
+/* Favoris */
+.fav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.fav-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.2rem;display:flex;flex-direction:column;gap:10px;transition:all var(--tr);cursor:pointer;}
+.fav-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);}
+.fav-logo{width:44px;height:44px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--chrome-light);}
+.fav-name{font-family:var(--font-cond);font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;}
+.fav-cat{font-size:0.78rem;color:var(--chrome);}
+.fav-stand{font-family:var(--font-cond);font-size:10px;letter-spacing:0.1em;color:var(--chrome);text-transform:uppercase;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.05);}
+
+/* PRO SECTION — Documents */
+.doc-list{display:flex;flex-direction:column;gap:8px;}
+.doc-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1rem 1.5rem;display:flex;align-items:center;gap:1.5rem;transition:all var(--tr);cursor:pointer;}
+.doc-item:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);}
+.doc-icon{width:40px;height:40px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.doc-icon.pdf{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);}
+.doc-icon.pdf svg{stroke:var(--red);}
+.doc-icon.img{background:rgba(41,128,185,0.1);border:1px solid rgba(41,128,185,0.2);}
+.doc-icon.img svg{stroke:var(--info);}
+.doc-icon svg{width:18px;height:18px;stroke:var(--chrome);fill:none;stroke-width:1.5;}
+.doc-info{flex:1;}
+.doc-name{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);letter-spacing:0.05em;}
+.doc-meta{font-family:var(--font-cond);font-size:10px;color:var(--chrome);letter-spacing:0.08em;margin-top:3px;}
+.doc-status{font-family:var(--font-cond);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:3px 8px;border-radius:1px;}
+.doc-status.new{background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);color:var(--success);}
+.doc-status.updated{background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.2);color:var(--warn);}
+.doc-download{width:32px;height:32px;border:1px solid rgba(255,255,255,0.08);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--tr);}
+.doc-download:hover{border-color:var(--red);background:rgba(192,57,43,0.1);}
+.doc-download svg{width:14px;height:14px;stroke:var(--chrome);fill:none;stroke-width:1.5;}
+
+/* Messages */
+.msg-layout{display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;height:500px;}
+.msg-list{border-right:1px solid rgba(255,255,255,0.06);overflow-y:auto;}
+.msg-item{padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:background var(--tr);}
+.msg-item:hover,.msg-item.active{background:rgba(255,255,255,0.04);}
+.msg-item.unread .msg-item-name{color:var(--white);}
+.msg-item-name{font-family:var(--font-cond);font-size:12px;font-weight:600;color:var(--chrome-light);margin-bottom:3px;}
+.msg-item-preview{font-size:0.78rem;color:var(--chrome);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.msg-item-time{font-family:var(--font-cond);font-size:9px;color:var(--chrome);margin-top:4px;}
+.msg-thread{display:flex;flex-direction:column;}
+.msg-thread-header{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.msg-thread-title{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);}
+.msg-bubbles{flex:1;padding:1.5rem;overflow-y:auto;display:flex;flex-direction:column;gap:1rem;}
+.msg-bubble{max-width:70%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:0.8rem 1rem;}
+.msg-bubble.mine{align-self:flex-end;background:rgba(192,57,43,0.1);border-color:rgba(192,57,43,0.2);}
+.msg-bubble-text{font-size:0.85rem;color:var(--chrome-light);line-height:1.6;}
+.msg-bubble-time{font-family:var(--font-cond);font-size:9px;color:var(--chrome);margin-top:4px;}
+.msg-input-row{padding:1rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;}
+.msg-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:0.7rem 1rem;font-family:var(--font-body);font-size:0.85rem;color:var(--white);}
+.msg-input:focus{outline:none;border-color:rgba(192,57,43,0.4);}
+.msg-input::placeholder{color:var(--chrome);}
+.msg-send{width:36px;height:36px;background:var(--red);border:none;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--tr);}
+.msg-send:hover{background:#a93226;}
+.msg-send svg{width:16px;height:16px;stroke:white;fill:none;stroke-width:1.5;}
+
+/* Upload */
+.upload-area{border:1px dashed rgba(255,255,255,0.12);border-radius:4px;padding:3rem;text-align:center;cursor:pointer;transition:all var(--tr);}
+.upload-area:hover{border-color:rgba(192,57,43,0.4);background:rgba(192,57,43,0.03);}
+.upload-icon{width:48px;height:48px;border:1px solid rgba(255,255,255,0.1);border-radius:2px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+.upload-icon svg{width:20px;height:20px;stroke:var(--chrome);fill:none;stroke-width:1.5;}
+.upload-title{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);letter-spacing:0.05em;margin-bottom:0.5rem;}
+.upload-sub{font-size:0.82rem;color:var(--chrome);}
+
+/* Badges grid */
+.badges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.badge-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;align-items:center;text-align:center;}
+.badge-avatar{width:56px;height:56px;border-radius:50%;background:rgba(192,57,43,0.1);border:2px solid rgba(192,57,43,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--red);}
+.badge-name{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);}
+.badge-role{font-family:var(--font-cond);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--chrome);}
+.badge-dl{padding:0.4rem 1rem;font-family:var(--font-cond);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:var(--chrome-light);cursor:pointer;transition:all var(--tr);}
+.badge-dl:hover{border-color:var(--red);color:var(--red);}
+
+/* Section titles */
+.section-h{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--chrome);margin-bottom:1.2rem;padding-bottom:0.7rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;}
+.section-h a{font-size:9px;letter-spacing:0.15em;color:var(--red);text-decoration:none;cursor:pointer;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+.content-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.5rem;}
+
+@media(max-width:900px){
+  .login-left{display:none;}
+  .login-right{width:100%;}
+  .dash-layout{grid-template-columns:1fr;}
+  .dash-sidebar{display:none;}
+  .dash-main{margin-left:0;padding:1.5rem;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .msg-layout{grid-template-columns:1fr;height:auto;}
+  .msg-list{display:none;}
+}
+@media(max-width:600px){
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .ticket-card-body{grid-template-columns:1fr;}
+  .qr-wrap{display:none;}
+  .ticket-info-grid{grid-template-columns:1fr;}
+  .grid-2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ── -->
+<div class="login-wrap" id="loginScreen">
+  <div class="login-left">
+    <div class="login-left-content">
+      <div class="login-logo-mark">M</div>
+      <h1 class="login-event-title">MotoSalon<br><em>Paris 2025</em></h1>
+      <div class="login-event-date">14 — 16 novembre 2025 • Paris Expo</div>
+      <div class="login-features">
+        <div class="login-feat"><span class="login-feat-dot"></span>Accédez à votre billet digital avec QR code</div>
+        <div class="login-feat"><span class="login-feat-dot"></span>Suivez le programme et vos exposants favoris</div>
+        <div class="login-feat"><span class="login-feat-dot"></span>Recevez les notifications du salon en temps réel</div>
+        <div class="login-feat"><span class="login-feat-dot"></span>Espace exposant : documents, badges, logistique</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-right">
+    <div class="login-form-box">
+      <h2 class="login-form-title">Mon espace</h2>
+      <p class="login-form-sub">Connectez-vous pour accéder à votre compte</p>
+
+      <div class="type-toggle">
+        <button class="type-btn active" onclick="setType('visiteur',this)">Visiteur</button>
+        <button class="type-btn" onclick="setType('pro',this)">Professionnel</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Adresse e-mail</label>
+        <input type="email" class="form-input" placeholder="votre@email.com" id="loginEmail">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mot de passe</label>
+        <input type="password" class="form-input" placeholder="••••••••" id="loginPwd">
+      </div>
+
+      <button class="btn btn-primary" onclick="doLogin()" style="margin-top:0.5rem">Se connecter</button>
+
+      <div class="login-links">
+        <a class="login-link" href="#">Mot de passe oublié ?</a>
+        <a class="login-link" href="billetterie.html">Créer un compte →</a>
+      </div>
+
+      <div class="login-divider">ou</div>
+
+      <button class="btn btn-ghost" style="width:100%;justify-content:center;font-size:11px" onclick="doLoginPro()">
+        Accès exposant avec code salon
+      </button>
+
+      <p style="font-family:var(--font-cond);font-size:9px;letter-spacing:0.08em;color:var(--chrome);text-align:center;margin-top:1.5rem;line-height:1.6">
+        Votre compte est créé automatiquement lors de l'achat de votre billet. Pour toute assistance : <span style="color:var(--white)">contact@motosalon.fr</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ── -->
+<div class="dashboard" id="dashScreen">
+  <div class="dash-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-logo">
+          <div class="dash-logo-mark">M</div>
+          <span class="dash-logo-text">MotoSalon</span>
+        </a>
+        <div class="user-card">
+          <div class="user-avatar" id="userAvatar">JD</div>
+          <div class="user-name" id="userName">Jean Dupont</div>
+          <span class="user-type visiteur" id="userTypeBadge">Visiteur</span>
+        </div>
+      </div>
+
+      <nav class="dash-nav" id="dashNav">
+        <!-- filled by JS -->
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="sidebar-logout" onclick="doLogout()">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Déconnexion</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dash-main">
+      <div class="dash-topbar">
+        <div>
+          <div class="dash-page-title" id="pageTitle">Tableau de bord</div>
+          <div class="dash-page-sub" id="pageSub">Bonjour Jean, bienvenue sur votre espace MotoSalon</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="notif-btn" onclick="showPanel('notifications')">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="notif-dot"></span>
+          </button>
+          <a href="index.html" class="btn btn-ghost" style="font-size:11px;padding:0.5rem 1rem">← Retour au site</a>
+        </div>
+      </div>
+
+      <!-- PANELS VISITEUR -->
+
+      <!-- Dashboard home -->
+      <div class="dash-panel active" id="panel-home">
+        <div class="stats-row" id="statsRow">
+          <!-- filled by JS -->
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="section-h">Mon billet <a onclick="showPanel('billet')">Voir →</a></div>
+            <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.2rem;display:flex;align-items:center;gap:1rem;">
+              <div style="width:48px;height:48px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg>
+              </div>
+              <div>
+                <div style="font-family:var(--font-cond);font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase">Pass 3 Jours</div>
+                <div style="font-size:0.78rem;color:var(--chrome);margin-top:2px">N° MS-2025-084712 • Valide 14-16 nov.</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-h">Prochain événement</div>
+            <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.2rem;">
+              <div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Demain — 10h30</div>
+              <div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);">L'électrique en moto — mythe ou réalité ?</div>
+              <div style="font-size:0.8rem;color:var(--chrome);margin-top:3px">Auditorium A</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-h" style="margin-top:1rem">Notifications récentes <a onclick="showPanel('notifications')">Tout voir →</a></div>
+        <div class="notif-list">
+          <div class="notif-item unread">
+            <div class="notif-dot"></div>
+            <div class="notif-content">
+              <div class="notif-title">Ouverture des portes demain à 9h00</div>
+              <div class="notif-body">Le salon ouvre officiellement vendredi 14 novembre. Votre billet QR code est disponible dans votre espace.</div>
+              <div class="notif-time">Il y a 2 heures</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-dot"></div>
+            <div class="notif-content">
+              <div class="notif-title">Black Diamond Moto — Avant-première confirmée</div>
+              <div class="notif-body">L'exposant que vous avez mis en favori annonce la présentation de sa V-Twin 1800cc samedi à 11h.</div>
+              <div class="notif-time">Il y a 5 heures</div>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-dot read"></div>
+            <div class="notif-content">
+              <div class="notif-title">Votre billet est prêt</div>
+              <div class="notif-body">Commande MS-2025-084712 confirmée. Téléchargez votre billet PDF dans votre espace.</div>
+              <div class="notif-time">Il y a 2 jours</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Billet -->
+      <div class="dash-panel" id="panel-billet">
+        <div class="ticket-main-card">
+          <div class="ticket-card-header">
+            <div class="ticket-card-header-left">
+              <div class="ticket-type-label">MotoSalon Paris 2025</div>
+              <div class="ticket-type-name">Pass 3 Jours</div>
+            </div>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg>
+          </div>
+          <div class="ticket-card-body">
+            <div class="ticket-info-grid">
+              <div class="ticket-info-item">
+                <div class="ti-label">Titulaire</div>
+                <div class="ti-value" id="ticketName">Jean Dupont</div>
+              </div>
+              <div class="ticket-info-item">
+                <div class="ti-label">Date(s)</div>
+                <div class="ti-value">14, 15 & 16 nov. 2025</div>
+              </div>
+              <div class="ticket-info-item">
+                <div class="ti-label">Lieu</div>
+                <div class="ti-value">Paris Expo — Hall 1</div>
+              </div>
+              <div class="ticket-info-item">
+                <div class="ti-label">N° de commande</div>
+                <div class="ti-value">MS-2025-084712</div>
+              </div>
+            </div>
+            <div class="qr-wrap"><div class="qr-code"></div></div>
+          </div>
+          <div class="ticket-card-footer">
+            <span class="ticket-num">Code : MS-2025-084712-A1</span>
+            <button class="btn btn-ghost" style="font-size:10px;padding:0.4rem 1rem">Télécharger PDF</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-ghost" style="font-size:11px">Ajouter au Wallet Apple</button>
+          <button class="btn btn-ghost" style="font-size:11px">Ajouter au Google Pay</button>
+          <button class="btn btn-ghost" style="font-size:11px">Envoyer par e-mail</button>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="dash-panel" id="panel-notifications">
+        <div class="notif-list">
+          <div class="notif-item unread"><div class="notif-dot"></div><div class="notif-content"><div class="notif-title">Ouverture des portes demain à 9h00</div><div class="notif-body">Le salon ouvre vendredi 14 novembre. Présentez votre QR code à l'entrée Hall 1.</div><div class="notif-time">Il y a 2 heures</div></div></div>
+          <div class="notif-item unread"><div class="notif-dot"></div><div class="notif-content"><div class="notif-title">Black Diamond Moto — Avant-première confirmée</div><div class="notif-body">L'exposant que vous suivez présente sa V-Twin 1800cc samedi à 11h00, Stand A-01.</div><div class="notif-time">Il y a 5 heures</div></div></div>
+          <div class="notif-item"><div class="notif-dot read"></div><div class="notif-content"><div class="notif-title">Votre billet est confirmé</div><div class="notif-body">Commande MS-2025-084712 enregistrée avec succès.</div><div class="notif-time">Il y a 2 jours</div></div></div>
+          <div class="notif-item"><div class="notif-dot read"></div><div class="notif-content"><div class="notif-title">Le programme est disponible</div><div class="notif-body">Consultez les 3 jours d'animations, conférences et shows en exclusivité.</div><div class="notif-time">Il y a 4 jours</div></div></div>
+        </div>
+      </div>
+
+      <!-- Favoris -->
+      <div class="dash-panel" id="panel-favoris">
+        <div class="section-h">Mes exposants favoris <span style="font-weight:400;color:var(--chrome)">3 exposants</span></div>
+        <div class="fav-grid">
+          <div class="fav-card" onclick="window.location.href='exposants.html'">
+            <div class="fav-logo">BD</div>
+            <div><div class="fav-name">Black Diamond Moto</div><div class="fav-cat">Constructeur • Custom & Performance</div></div>
+            <div class="fav-stand">Stand A-01 — Hall 1</div>
+          </div>
+          <div class="fav-card" onclick="window.location.href='exposants.html'">
+            <div class="fav-logo">RC</div>
+            <div><div class="fav-name">Racer Culture Paris</div><div class="fav-cat">Préparation • Custom Show</div></div>
+            <div class="fav-stand">Stand C-07 — Hall 3</div>
+          </div>
+          <div class="fav-card" onclick="window.location.href='exposants.html'">
+            <div class="fav-logo">MT</div>
+            <div><div class="fav-name">MotoTech Paris</div><div class="fav-cat">Accessoires • Électronique</div></div>
+            <div class="fav-stand">Stand D-22 — Hall 4</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;text-align:center">
+          <a href="exposants.html" class="btn btn-ghost" style="font-size:11px">Découvrir tous les exposants →</a>
+        </div>
+      </div>
+
+      <!-- Programme perso -->
+      <div class="dash-panel" id="panel-programme">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:rgba(192,57,43,0.05);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:1.2rem 1.5rem;display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:1rem;">
+            <div style="font-family:var(--font-display);font-size:1rem;color:var(--red)">Ven 14<br>10h30</div>
+            <div><div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);text-transform:uppercase">L'électrique en moto</div><div style="font-size:0.8rem;color:var(--chrome);margin-top:2px">Auditorium A — Conférence</div></div>
+            <span style="font-family:var(--font-cond);font-size:9px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);color:var(--red);padding:3px 8px;border-radius:1px;white-space:nowrap;text-transform:uppercase">♥ Favori</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.2rem 1.5rem;display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:1rem;">
+            <div style="font-family:var(--font-display);font-size:1rem;color:var(--chrome)">Sam 15<br>11h00</div>
+            <div><div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);text-transform:uppercase">Élection Custom de l'année</div><div style="font-size:0.8rem;color:var(--chrome);margin-top:2px">Scène Centrale — Compétition</div></div>
+            <span style="font-family:var(--font-cond);font-size:9px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);color:var(--red);padding:3px 8px;border-radius:1px;white-space:nowrap;text-transform:uppercase">♥ Favori</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:1.2rem 1.5rem;display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:1rem;">
+            <div style="font-family:var(--font-display);font-size:1rem;color:var(--chrome)">Dim 16<br>13h00</div>
+            <div><div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);text-transform:uppercase">Remise des Prix Custom Show</div><div style="font-size:0.8rem;color:var(--chrome);margin-top:2px">Scène Centrale — Officiel</div></div>
+            <span style="font-family:var(--font-cond);font-size:9px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);color:var(--red);padding:3px 8px;border-radius:1px;white-space:nowrap;text-transform:uppercase">♥ Favori</span>
+          </div>
+        </div>
+        <div style="margin-top:2rem;text-align:center">
+          <a href="index.html#programme" class="btn btn-ghost" style="font-size:11px">Voir le programme complet →</a>
+        </div>
+      </div>
+
+      <!-- PRO: Documents -->
+      <div class="dash-panel" id="panel-documents">
+        <div class="section-h">Documents du salon</div>
+        <div class="doc-list">
+          <div class="doc-item">
+            <div class="doc-icon pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="doc-info"><div class="doc-name">Dossier Exposant — MotoSalon 2025</div><div class="doc-meta">PDF • 4,2 Mo • Mis à jour le 28 oct. 2025</div></div>
+            <span class="doc-status new">Nouveau</span>
+            <div class="doc-download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="doc-info"><div class="doc-name">Règlement intérieur exposants</div><div class="doc-meta">PDF • 1,1 Mo • Mis à jour le 15 oct. 2025</div></div>
+            <span class="doc-status updated">Mis à jour</span>
+            <div class="doc-download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon img"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><path d="M9 21V9"/></svg></div>
+            <div class="doc-info"><div class="doc-name">Plan d'implantation — Hall 1, 2 & 3</div><div class="doc-meta">PDF • 8,5 Mo • Version finale</div></div>
+            <span class="doc-status new">Nouveau</span>
+            <div class="doc-download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="doc-info"><div class="doc-name">Facture acompte — Participation 2025</div><div class="doc-meta">PDF • 0,3 Mo • Réglé le 2 sept. 2025</div></div>
+            <div></div>
+            <div class="doc-download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon pdf"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="doc-info"><div class="doc-name">Facture solde — Participation 2025</div><div class="doc-meta">PDF • 0,3 Mo • Réglé le 20 oct. 2025</div></div>
+            <div></div>
+            <div class="doc-download"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          </div>
+        </div>
+
+        <div class="section-h" style="margin-top:2rem">Déposer un document</div>
+        <div class="upload-area">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="upload-title">Glissez-déposez vos fichiers ici</div>
+          <div class="upload-sub">ou cliquez pour sélectionner (PDF, JPG, PNG — max 10 Mo)</div>
+        </div>
+      </div>
+
+      <!-- PRO: Badges -->
+      <div class="dash-panel" id="panel-badges">
+        <div class="section-h">Badges équipe <a href="#">+ Ajouter un membre</a></div>
+        <div class="badges-grid">
+          <div class="badge-card">
+            <div class="badge-avatar">JP</div>
+            <div class="badge-name">Jean Présentoir</div>
+            <div class="badge-role">Responsable stand</div>
+            <button class="badge-dl">Télécharger le badge</button>
+          </div>
+          <div class="badge-card">
+            <div class="badge-avatar">ML</div>
+            <div class="badge-name">Marie Leblanc</div>
+            <div class="badge-role">Commerciale</div>
+            <button class="badge-dl">Télécharger le badge</button>
+          </div>
+          <div class="badge-card">
+            <div class="badge-avatar">AT</div>
+            <div class="badge-name">Antoine Torrez</div>
+            <div class="badge-role">Technicien</div>
+            <button class="badge-dl">Télécharger le badge</button>
+          </div>
+          <div class="badge-card" style="border:1px dashed rgba(255,255,255,0.1);cursor:pointer;justify-content:center;align-items:center;gap:0.5rem;" onclick="alert('Ajouter un membre')">
+            <div style="font-family:var(--font-cond);font-size:24px;color:var(--chrome)">+</div>
+            <div style="font-family:var(--font-cond);font-size:11px;letter-spacing:0.1em;color:var(--chrome);text-transform:uppercase">Ajouter</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRO: Messagerie -->
+      <div class="dash-panel" id="panel-messages">
+        <div class="msg-layout">
+          <div class="msg-list">
+            <div class="msg-item active unread">
+              <div class="msg-item-name">Organisateur — Logistique</div>
+              <div class="msg-item-preview">Bonjour, concernant votre demande de chariot élévateur...</div>
+              <div class="msg-item-time">Il y a 1h</div>
+            </div>
+            <div class="msg-item">
+              <div class="msg-item-name">Équipe accueil</div>
+              <div class="msg-item-preview">Vos badges équipe sont prêts à télécharger</div>
+              <div class="msg-item-time">Il y a 1 jour</div>
+            </div>
+            <div class="msg-item">
+              <div class="msg-item-name">Organisateur — Facturation</div>
+              <div class="msg-item-preview">Votre facture de solde est disponible</div>
+              <div class="msg-item-time">Il y a 3 jours</div>
+            </div>
+          </div>
+          <div class="msg-thread">
+            <div class="msg-thread-header">
+              <div class="msg-thread-title">Organisateur — Logistique</div>
+            </div>
+            <div class="msg-bubbles">
+              <div class="msg-bubble">
+                <div class="msg-bubble-text">Bonjour, nous souhaiterions bénéficier d'un chariot élévateur le jeudi 13 novembre pour le montage de notre stand. Est-ce possible ?</div>
+                <div class="msg-bubble-time">Hier, 14h22 — Black Diamond Moto</div>
+              </div>
+              <div class="msg-bubble mine">
+                <div class="msg-bubble-text">Bonjour, absolument ! Un chariot élévateur sera disponible jeudi 13 de 8h à 17h. Merci de nous confirmer l'heure approximative souhaitée.</div>
+                <div class="msg-bubble-time">Hier, 15h10 — Organisateur MotoSalon</div>
+              </div>
+              <div class="msg-bubble">
+                <div class="msg-bubble-text">Parfait, nous prévoyons d'arriver vers 9h30. Merci beaucoup pour votre réactivité !</div>
+                <div class="msg-bubble-time">Il y a 1h — Black Diamond Moto</div>
+              </div>
+            </div>
+            <div class="msg-input-row">
+              <input type="text" class="msg-input" placeholder="Écrire un message à l'organisateur…" onkeydown="sendMsg(event)">
+              <button class="msg-send"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRO: Logistique -->
+      <div class="dash-panel" id="panel-logistique">
+        <div class="section-h">Demandes logistiques</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:rgba(39,174,96,0.05);border:1px solid rgba(39,174,96,0.15);border-radius:4px;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+            <div><div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white)">Chariot élévateur — Jeu. 13 nov. 9h30</div><div style="font-size:0.8rem;color:var(--chrome);margin-top:3px">Montage stand A-01</div></div>
+            <span style="font-family:var(--font-cond);font-size:9px;background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);color:var(--success);padding:3px 10px;border-radius:1px;text-transform:uppercase">Confirmé</span>
+          </div>
+          <div style="background:rgba(230,126,34,0.05);border:1px solid rgba(230,126,34,0.15);border-radius:4px;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+            <div><div style="font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white)">Raccordement électrique 32A</div><div style="font-size:0.8rem;color:var(--chrome);margin-top:3px">Demande du 5 oct. — Stand A-01</div></div>
+            <span style="font-family:var(--font-cond);font-size:9px;background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.2);color:var(--warn);padding:3px 10px;border-radius:1px;text-transform:uppercase">En cours</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <button class="btn btn-ghost" style="font-size:11px" onclick="showPanel('messages')">+ Nouvelle demande via messagerie</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+let userType = 'visiteur';
+
+const navConfigs = {
+  visiteur: [
+    {label:'Mon espace', items:[
+      {id:'home', icon:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>', label:'Tableau de bord'},
+      {id:'billet', icon:'<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>', label:'Mon billet & QR code'},
+      {id:'notifications', icon:'<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>', label:'Notifications', badge:'2'},
+      {id:'favoris', icon:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>', label:'Exposants favoris'},
+      {id:'programme', icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>', label:'Mon programme'}
+    ]}
+  ],
+  pro: [
+    {label:'Mon espace', items:[
+      {id:'home', icon:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>', label:'Tableau de bord'},
+    ]},
+    {label:'Salon', items:[
+      {id:'documents', icon:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>', label:'Documents & Factures', badge:'2'},
+      {id:'badges', icon:'<path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>', label:'Badges équipe'},
+      {id:'logistique', icon:'<rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>', label:'Demandes logistiques'},
+      {id:'messages', icon:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>', label:'Messagerie organisateur', badge:'1'},
+    ]}
+  ]
+};
+
+const statsConfigs = {
+  visiteur: [
+    {icon:'<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>',cls:'red',val:'1',label:'Billet actif'},
+    {icon:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',cls:'red',val:'3',label:'Exposants favoris'},
+    {icon:'<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',cls:'blue',val:'2',label:'Nouvelles notifs'},
+    {icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',cls:'green',val:'3',label:'Évts. programme'}
+  ],
+  pro: [
+    {icon:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>',cls:'red',val:'5',label:'Documents dispo'},
+    {icon:'<path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>',cls:'blue',val:'3',label:'Badges équipe'},
+    {icon:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',cls:'green',val:'1',label:'Message non lu'},
+    {icon:'<rect x="1" y="3" width="15" height="13"/>',cls:'gold',val:'2',label:'Demandes logistique'}
+  ]
+};
+
+function setType(type, btn) {
+  userType = type;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function buildNav() {
+  const nav = document.getElementById('dashNav');
+  nav.innerHTML = '';
+  const config = navConfigs[userType];
+  config.forEach(section => {
+    const sec = document.createElement('div');
+    sec.className = 'nav-section';
+    const lbl = document.createElement('div');
+    lbl.className = 'nav-section-label';
+    lbl.textContent = section.label;
+    sec.appendChild(lbl);
+    section.items.forEach(item => {
+      const a = document.createElement('div');
+      a.className = 'nav-item' + (item.id === 'home' ? ' active' : '');
+      a.id = 'nav-' + item.id;
+      a.onclick = () => showPanel(item.id);
+      a.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">${item.icon}</svg><span class="nav-item-label">${item.label}</span>` + (item.badge ? `<span class="nav-badge">${item.badge}</span>` : '');
+      sec.appendChild(a);
+    });
+    nav.appendChild(sec);
+  });
+}
+
+function buildStats() {
+  const row = document.getElementById('statsRow');
+  row.innerHTML = '';
+  statsConfigs[userType].forEach(s => {
+    row.innerHTML += `<div class="stat-card"><div class="stat-icon ${s.cls}"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">${s.icon}</svg></div><div class="stat-value">${s.val}</div><div class="stat-label">${s.label}</div></div>`;
+  });
+}
+
+function showPanel(id) {
+  document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById('panel-' + id);
+  const navItem = document.getElementById('nav-' + id);
+  if (panel) panel.classList.add('active');
+  if (navItem) navItem.classList.add('active');
+  const titles = {home:'Tableau de bord',billet:'Mon billet',notifications:'Notifications',favoris:'Mes favoris',programme:'Mon programme',documents:'Documents & Factures',badges:'Badges équipe',messages:'Messagerie',logistique:'Demandes logistiques'};
+  document.getElementById('pageTitle').textContent = titles[id] || 'Mon espace';
+}
+
+function doLogin() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('dashScreen').style.display = 'block';
+  buildNav();
+  buildStats();
+  if (userType === 'pro') {
+    document.getElementById('userName').textContent = 'Black Diamond Moto';
+    document.getElementById('userAvatar').textContent = 'BD';
+    document.getElementById('userTypeBadge').textContent = 'Exposant';
+    document.getElementById('userTypeBadge').className = 'user-type pro';
+    document.getElementById('pageSub').textContent = 'Bienvenue sur votre espace exposant MotoSalon';
+    document.getElementById('ticketName').textContent = 'Black Diamond Moto';
+  }
+}
+
+function doLoginPro() {
+  userType = 'pro';
+  doLogin();
+}
+
+function doLogout() {
+  document.getElementById('dashScreen').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  userType = 'visiteur';
+  document.querySelectorAll('.type-btn').forEach((b,i) => { b.classList.toggle('active', i===0); });
+}
+
+function sendMsg(e) {
+  if (e.key === 'Enter' && e.target.value.trim()) {
+    const bubbles = document.querySelector('.msg-bubbles');
+    const div = document.createElement('div');
+    div.className = 'msg-bubble';
+    div.innerHTML = `<div class="msg-bubble-text">${e.target.value}</div><div class="msg-bubble-time">À l'instant — Vous</div>`;
+    bubbles.appendChild(div);
+    e.target.value = '';
+    bubbles.scrollTop = bubbles.scrollHeight;
+  }
+}
+</script>
+</body>
+</html>

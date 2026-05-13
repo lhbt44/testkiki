@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — MotoSalon Paris 2025</title>
+<meta name="description" content="Contactez l'équipe MotoSalon Paris 2025. Renseignements visiteurs, demandes exposants, presse et partenariats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--near-black:#111114;--dark:#1a1a1f;--mid:#2a2a32;--chrome:#8a8a9a;--chrome-light:#c4c4d0;--white:#f8f8f6;--red:#c0392b;--gold:#b8960c;--success:#27ae60;--font-display:'Playfair Display',serif;--font-body:'Barlow',sans-serif;--font-cond:'Barlow Condensed',sans-serif;--tr:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--near-black);color:var(--white);font-family:var(--font-body);font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3rem;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav-logo-mark{width:38px;height:38px;border:1.5px solid var(--red);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--red);}
+.nav-logo-name{font-family:var(--font-cond);font-size:17px;font-weight:700;letter-spacing:0.12em;color:var(--white);text-transform:uppercase;display:block;}
+.nav-logo-sub{font-family:var(--font-cond);font-size:10px;letter-spacing:0.25em;color:var(--chrome);text-transform:uppercase;display:block;}
+.nav-links{display:flex;list-style:none;}
+.nav-links a{display:block;padding:0.5rem 1.2rem;font-family:var(--font-cond);font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--chrome-light);text-decoration:none;transition:color var(--tr);}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:0.65rem 1.5rem;font-family:var(--font-cond);font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:none;border-radius:2px;cursor:pointer;transition:all var(--tr);}
+.btn-ghost{background:transparent;color:var(--chrome-light);border:1px solid rgba(255,255,255,0.15);}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.4);}
+.btn-primary{background:var(--red);color:var(--white);border:1px solid var(--red);}
+.btn-primary:hover{background:#a93226;transform:translateY(-1px);box-shadow:0 8px 24px rgba(192,57,43,0.3);}
+.btn-outline{background:transparent;color:var(--red);border:1px solid var(--red);}
+.btn-outline:hover{background:var(--red);color:var(--white);}
+
+/* PAGE HERO */
+.page-hero{padding:140px 3rem 80px;background:linear-gradient(160deg,#0a0a0a 0%,#141418 60%,#1a0f0f 100%);border-bottom:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(192,57,43,0.06),transparent 70%);}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.page-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;}
+.eyebrow-line{width:28px;height:1px;background:var(--red);}
+.eyebrow-text{font-family:var(--font-cond);font-size:10px;font-weight:500;letter-spacing:0.35em;color:var(--red);text-transform:uppercase;}
+.page-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:1.05;color:var(--white);}
+.page-title em{font-style:italic;color:var(--chrome-light);}
+.page-subtitle{font-size:1rem;font-weight:300;color:var(--chrome-light);margin-top:1rem;max-width:520px;line-height:1.8;}
+
+/* CONTACT TYPE SELECTOR */
+.contact-type-bar{background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);}
+.contact-type-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;gap:0;}
+.ctype-btn{padding:1.2rem 2rem;font-family:var(--font-cond);font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--chrome);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all var(--tr);display:flex;align-items:center;gap:8px;}
+.ctype-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.ctype-btn:hover{color:var(--white);}
+.ctype-btn.active{color:var(--white);border-bottom-color:var(--red);}
+
+/* MAIN LAYOUT */
+.main{max-width:1200px;margin:0 auto;padding:4rem 3rem 6rem;}
+.contact-layout{display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:start;}
+
+/* FORM */
+.form-section{display:none;}
+.form-section.active{display:block;}
+.form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.form-desc{font-size:0.9rem;color:var(--chrome-light);line-height:1.8;margin-bottom:2rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 1.5rem;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{font-family:var(--font-cond);font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--chrome);}
+.form-label span{color:var(--red);}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.8rem 1rem;font-family:var(--font-body);font-size:0.9rem;color:var(--white);transition:border-color var(--tr);width:100%;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:rgba(192,57,43,0.5);background:rgba(255,255,255,0.06);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--chrome);}
+.form-textarea{resize:vertical;min-height:140px;line-height:1.7;}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a8a9a' stroke-width='1.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:14px;}
+.form-select option{background:var(--dark);}
+.form-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
+.form-check input{appearance:none;width:16px;height:16px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;background:transparent;cursor:pointer;flex-shrink:0;margin-top:2px;position:relative;transition:all var(--tr);}
+.form-check input:checked{background:var(--red);border-color:var(--red);}
+.form-check input:checked::after{content:'';position:absolute;top:2px;left:5px;width:4px;height:7px;border:1.5px solid white;border-top:none;border-left:none;transform:rotate(45deg);}
+.form-check-label{font-size:0.85rem;color:var(--chrome-light);line-height:1.5;}
+.form-check-label a{color:var(--red);text-decoration:none;}
+.char-count{font-family:var(--font-cond);font-size:9px;letter-spacing:0.1em;color:var(--chrome);text-align:right;margin-top:3px;}
+
+/* File upload */
+.file-upload{border:1px dashed rgba(255,255,255,0.1);border-radius:2px;padding:1.5rem;text-align:center;cursor:pointer;transition:all var(--tr);}
+.file-upload:hover{border-color:rgba(192,57,43,0.3);background:rgba(192,57,43,0.02);}
+.file-upload input{display:none;}
+.file-upload-label{font-family:var(--font-cond);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chrome);cursor:pointer;}
+.file-upload-label span{color:var(--red);}
+
+/* SUCCESS MESSAGE */
+.success-msg{display:none;text-align:center;padding:3rem 2rem;}
+.success-icon{width:64px;height:64px;border-radius:50%;background:rgba(39,174,96,0.1);border:2px solid var(--success);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+.success-icon svg{width:28px;height:28px;stroke:var(--success);fill:none;stroke-width:2;}
+.success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:0.8rem;}
+.success-sub{font-size:0.9rem;color:var(--chrome-light);max-width:400px;margin:0 auto 2rem;line-height:1.8;}
+
+/* SIDEBAR */
+.contact-sidebar{display:flex;flex-direction:column;gap:1.5rem;}
+.sidebar-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.sidebar-card-header{padding:1.2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:10px;}
+.sidebar-card-icon{width:32px;height:32px;border:1px solid rgba(192,57,43,0.3);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sidebar-card-icon svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;}
+.sidebar-card-title{font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);}
+.sidebar-card-body{padding:1.2rem 1.5rem;}
+.contact-item{display:flex;flex-direction:column;gap:2px;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.04);}
+.contact-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.contact-item-label{font-family:var(--font-cond);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--chrome);}
+.contact-item-value{font-size:0.88rem;color:var(--chrome-light);line-height:1.5;}
+.contact-item-value a{color:var(--white);text-decoration:none;transition:color var(--tr);}
+.contact-item-value a:hover{color:var(--red);}
+.hours-grid{display:flex;flex-direction:column;gap:8px;}
+.hour-row{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;}
+.hour-day{color:var(--chrome-light);}
+.hour-time{font-family:var(--font-cond);font-size:12px;font-weight:500;color:var(--white);letter-spacing:0.05em;}
+.hour-special{color:var(--red);}
+.social-row{display:flex;gap:8px;flex-wrap:wrap;}
+.soc-ico{width:34px;height:34px;border:1px solid rgba(255,255,255,0.08);border-radius:2px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--tr);}
+.soc-ico svg{width:14px;height:14px;fill:var(--chrome);transition:fill var(--tr);}
+.soc-ico:hover{border-color:var(--red);background:rgba(192,57,43,0.1);}
+.soc-ico:hover svg{fill:var(--red);}
+.map-placeholder{width:100%;height:200px;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.04));border:1px solid rgba(255,255,255,0.06);border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer;transition:border-color var(--tr);}
+.map-placeholder:hover{border-color:rgba(192,57,43,0.2);}
+.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:24px 24px;}
+.map-pin{position:relative;z-index:1;text-align:center;}
+.map-pin-dot{width:16px;height:16px;background:var(--red);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 0 4px rgba(192,57,43,0.2),0 0 0 8px rgba(192,57,43,0.1);}
+.map-pin-label{font-family:var(--font-cond);font-size:10px;letter-spacing:0.15em;color:var(--white);text-transform:uppercase;}
+.map-overlay-btn{position:absolute;bottom:10px;right:10px;background:var(--dark);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:5px 10px;font-family:var(--font-cond);font-size:9px;letter-spacing:0.15em;color:var(--chrome-light);text-transform:uppercase;cursor:pointer;transition:all var(--tr);}
+.map-overlay-btn:hover{border-color:var(--red);color:var(--red);}
+
+/* FAQ */
+.faq-section{margin-top:5rem;}
+.faq-title{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.faq-sub{font-size:0.9rem;color:var(--chrome-light);margin-bottom:2.5rem;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.04);border-radius:4px;overflow:hidden;}
+.faq-item{background:rgba(255,255,255,0.02);padding:1.5rem 2rem;cursor:pointer;transition:background var(--tr);}
+.faq-item:hover{background:rgba(255,255,255,0.04);}
+.faq-q{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0;}
+.faq-q-text{font-family:var(--font-cond);font-size:13px;font-weight:600;color:var(--white);letter-spacing:0.04em;line-height:1.4;}
+.faq-toggle{width:20px;height:20px;border:1px solid rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--chrome);transition:all var(--tr);margin-top:1px;}
+.faq-item.open .faq-toggle{background:var(--red);border-color:var(--red);color:var(--white);transform:rotate(45deg);}
+.faq-a{font-size:0.85rem;color:var(--chrome-light);line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.4s ease,margin-top 0.3s ease;}
+.faq-item.open .faq-a{max-height:200px;margin-top:0.8rem;}
+
+/* NEWSLETTER */
+.newsletter{background:linear-gradient(135deg,rgba(192,57,43,0.06),transparent);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:3rem;flex-wrap:wrap;}
+.nl-text{}
+.nl-eyebrow{font-family:var(--font-cond);font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;}
+.nl-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--white);}
+.nl-sub{font-size:0.85rem;color:var(--chrome-light);margin-top:4px;}
+.nl-form{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.nl-input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.7rem 1.2rem;font-family:var(--font-body);font-size:0.88rem;color:var(--white);min-width:240px;transition:border-color var(--tr);}
+.nl-input:focus{outline:none;border-color:rgba(192,57,43,0.4);}
+.nl-input::placeholder{color:var(--chrome);}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-family:var(--font-cond);font-size:11px;letter-spacing:0.1em;color:var(--chrome);}
+.footer-nav{display:flex;gap:1.5rem;}
+.footer-nav a{font-family:var(--font-cond);font-size:11px;color:var(--chrome);text-decoration:none;transition:color var(--tr);}
+.footer-nav a:hover{color:var(--white);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:1000px){
+  nav{padding:0 1.5rem;}
+  .page-hero{padding:120px 1.5rem 60px;}
+  .contact-type-inner{padding:0 1.5rem;overflow-x:auto;scrollbar-width:none;}
+  .main{padding:3rem 1.5rem 4rem;}
+  .contact-layout{grid-template-columns:1fr;gap:3rem;}
+  .contact-sidebar{order:-1;}
+  .faq-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .form-grid{grid-template-columns:1fr;}
+  .form-group.full{grid-column:1;}
+  .newsletter{flex-direction:column;}
+  .nl-input{min-width:0;width:100%;}
+  .nl-form{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div>
+      <span class="nav-logo-name">MotoSalon</span>
+      <span class="nav-logo-sub">Paris 2025</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="exposants.html">Exposants</a></li>
+    <li><a href="index.html#programme">Programme</a></li>
+    <li><a href="index.html#infos">Infos pratiques</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div style="display:flex;gap:10px">
+    <a href="login.html" class="btn btn-ghost">Mon compte</a>
+    <a href="billetterie.html" class="btn btn-primary">Billetterie</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Nous contacter</span></div>
+    <h1 class="page-title">Une question ?<br><em>Écrivez-nous.</em></h1>
+    <p class="page-subtitle">Notre équipe répond dans les 24h ouvrées. Choisissez le type de demande qui vous correspond pour un traitement plus rapide.</p>
+  </div>
+</div>
+
+<!-- CONTACT TYPE TABS -->
+<div class="contact-type-bar">
+  <div class="contact-type-inner">
+    <button class="ctype-btn active" onclick="setContactType('visiteur',this)">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Visiteur
+    </button>
+    <button class="ctype-btn" onclick="setContactType('exposant',this)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      Devenir exposant
+    </button>
+    <button class="ctype-btn" onclick="setContactType('presse',this)">
+      <svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+      Presse & Médias
+    </button>
+    <button class="ctype-btn" onclick="setContactType('partenariat',this)">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Partenariat
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="contact-layout">
+
+    <!-- FORMS -->
+    <div>
+
+      <!-- FORM: VISITEUR -->
+      <div class="form-section active" id="form-visiteur">
+        <h2 class="form-title">Renseignements visiteurs</h2>
+        <p class="form-desc">Billetterie, accès, programme, infos pratiques… Notre équipe d'accueil vous répond dans les meilleurs délais.</p>
+
+        <div class="form-grid" id="form-v">
+          <div class="form-group">
+            <label class="form-label">Prénom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Jean">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Dupont">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Adresse e-mail <span>*</span></label>
+            <input type="email" class="form-input" placeholder="jean.dupont@email.com">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Sujet de votre demande <span>*</span></label>
+            <select class="form-select">
+              <option value="" disabled selected>Sélectionnez…</option>
+              <option>Billetterie & tarifs</option>
+              <option>Accès & transport</option>
+              <option>Programme & animations</option>
+              <option>Exposants</option>
+              <option>Accessibilité PMR</option>
+              <option>Groupe & scolaires</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Votre message <span>*</span></label>
+            <textarea class="form-textarea" placeholder="Décrivez votre demande avec le plus de détails possible…" maxlength="1000" oninput="updateCount(this,'count-v')"></textarea>
+            <div class="char-count" id="count-v">0 / 1000 caractères</div>
+          </div>
+          <div class="form-group full">
+            <label class="form-check">
+              <input type="checkbox">
+              <span class="form-check-label">J'accepte la <a href="#">politique de confidentialité</a> et le traitement de mes données pour traiter ma demande <span style="color:var(--red)">*</span></span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+          <button class="btn btn-primary" onclick="submitForm('visiteur')" style="padding:0.9rem 2.5rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+        </div>
+        <div class="success-msg" id="success-visiteur">
+          <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="success-title">Message envoyé !</div>
+          <div class="success-sub">Notre équipe visiteurs vous répondra dans les 24h ouvrées à l'adresse e-mail indiquée.</div>
+          <button class="btn btn-ghost" onclick="resetForm('visiteur')">Envoyer une nouvelle demande</button>
+        </div>
+      </div>
+
+      <!-- FORM: EXPOSANT -->
+      <div class="form-section" id="form-exposant">
+        <h2 class="form-title">Demande dossier exposant</h2>
+        <p class="form-desc">Vous souhaitez participer à MotoSalon Paris 2025 en tant qu'exposant ? Complétez ce formulaire et notre équipe commerciale vous contactera sous 48h avec la plaquette tarifaire et les disponibilités.</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Prénom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Marie">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Martin">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Entreprise / Marque <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Nom de votre société">
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail professionnel <span>*</span></label>
+            <input type="email" class="form-input" placeholder="contact@societe.fr">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone <span>*</span></label>
+            <input type="tel" class="form-input" placeholder="+33 1 23 45 67 89">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Catégorie d'activité <span>*</span></label>
+            <select class="form-select">
+              <option value="" disabled selected>Sélectionnez votre catégorie</option>
+              <option>Constructeur / Importateur</option>
+              <option>Équipement & Protection</option>
+              <option>Accessoires & Personnalisation</option>
+              <option>Préparation & Custom</option>
+              <option>Concession / Multimarque</option>
+              <option>Services & Assurance</option>
+              <option>Médias & Publications</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Surface souhaitée (m²)</label>
+            <select class="form-select">
+              <option value="" disabled selected>Estimation</option>
+              <option>Moins de 20 m²</option>
+              <option>20 à 50 m²</option>
+              <option>50 à 100 m²</option>
+              <option>100 à 200 m²</option>
+              <option>Plus de 200 m² (îlot)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Budget indicatif HT</label>
+            <select class="form-select">
+              <option value="" disabled selected>Fourchette</option>
+              <option>Moins de 3 000 €</option>
+              <option>3 000 — 8 000 €</option>
+              <option>8 000 — 20 000 €</option>
+              <option>Plus de 20 000 €</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Présentation de votre société & besoins spécifiques</label>
+            <textarea class="form-textarea" placeholder="Décrivez votre activité, vos produits, vos attentes pour le salon…" maxlength="1500" oninput="updateCount(this,'count-e')"></textarea>
+            <div class="char-count" id="count-e">0 / 1500 caractères</div>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Joindre un document (optionnel)</label>
+            <div class="file-upload">
+              <input type="file" id="fileExposant" accept=".pdf,.doc,.docx">
+              <label for="fileExposant" class="file-upload-label">
+                Cliquez pour sélectionner ou glissez un fichier — PDF, DOC (<span>max 5 Mo</span>)
+              </label>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label class="form-check">
+              <input type="checkbox">
+              <span class="form-check-label">J'accepte la <a href="#">politique de confidentialité</a> et d'être recontacté par l'équipe commerciale MotoSalon <span style="color:var(--red)">*</span></span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+          <button class="btn btn-primary" onclick="submitForm('exposant')" style="padding:0.9rem 2.5rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+        </div>
+        <div class="success-msg" id="success-exposant">
+          <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="success-title">Demande reçue !</div>
+          <div class="success-sub">Notre équipe commerciale vous contactera sous 48h avec le dossier exposant et les disponibilités de stands.</div>
+          <button class="btn btn-ghost" onclick="resetForm('exposant')">Envoyer une nouvelle demande</button>
+        </div>
+      </div>
+
+      <!-- FORM: PRESSE -->
+      <div class="form-section" id="form-presse">
+        <h2 class="form-title">Demande d'accréditation presse</h2>
+        <p class="form-desc">Journalistes, photographes, vidéastes, influenceurs moto — obtenez votre accréditation presse pour MotoSalon Paris 2025 et accédez aux zones exclusives, conférences et interviews.</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Prénom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Sophie">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Bernard">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Média / Titre de presse <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Nom du magazine, site, chaîne YouTube…">
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail professionnel <span>*</span></label>
+            <input type="email" class="form-input" placeholder="sophie@media.fr">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone</label>
+            <input type="tel" class="form-input" placeholder="+33 6 78 90 12 34">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Type de média <span>*</span></label>
+            <select class="form-select">
+              <option value="" disabled selected>Sélectionnez</option>
+              <option>Magazine / Presse papier</option>
+              <option>Presse en ligne / Site web</option>
+              <option>YouTube / Vidéo</option>
+              <option>Podcast</option>
+              <option>Réseaux sociaux (influenceur)</option>
+              <option>Radio / TV</option>
+              <option>Agence photo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Audience / Abonnés (estimation)</label>
+            <input type="text" class="form-input" placeholder="ex : 45 000 abonnés Instagram">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Lien vers votre média <span>*</span></label>
+            <input type="url" class="form-input" placeholder="https://votre-media.fr">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Angle éditorial prévu</label>
+            <textarea class="form-textarea" style="min-height:100px" placeholder="Décrivez brièvement l'angle ou le sujet que vous prévoyez de traiter sur MotoSalon Paris 2025…" maxlength="600" oninput="updateCount(this,'count-p')"></textarea>
+            <div class="char-count" id="count-p">0 / 600 caractères</div>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Justificatif carte de presse (optionnel)</label>
+            <div class="file-upload">
+              <input type="file" id="filePresse" accept=".pdf,.jpg,.png">
+              <label for="filePresse" class="file-upload-label">Carte de presse ou justificatif — PDF, JPG (<span>max 5 Mo</span>)</label>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label class="form-check">
+              <input type="checkbox">
+              <span class="form-check-label">Je certifie exercer une activité journalistique ou de créateur de contenu et accepte la <a href="#">charte presse MotoSalon</a> <span style="color:var(--red)">*</span></span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+          <button class="btn btn-primary" onclick="submitForm('presse')" style="padding:0.9rem 2.5rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande
+          </button>
+        </div>
+        <div class="success-msg" id="success-presse">
+          <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="success-title">Demande presse reçue !</div>
+          <div class="success-sub">Notre attachée de presse vous contactera sous 72h. Le kit presse vous sera envoyé dès validation de votre accréditation.</div>
+          <button class="btn btn-ghost" onclick="resetForm('presse')">Envoyer une nouvelle demande</button>
+        </div>
+      </div>
+
+      <!-- FORM: PARTENARIAT -->
+      <div class="form-section" id="form-partenariat">
+        <h2 class="form-title">Proposition de partenariat</h2>
+        <p class="form-desc">Vous souhaitez vous associer à MotoSalon Paris 2025 ? Partenariats officiels, co-branding, sponsoring d'animation, visibilité sur site et hors-site — parlons-en.</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Prénom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Luc">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Fontaine">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Société <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Nom de votre entreprise">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre poste</label>
+            <input type="text" class="form-input" placeholder="Directeur marketing…">
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail <span>*</span></label>
+            <input type="email" class="form-input" placeholder="luc@societe.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone</label>
+            <input type="tel" class="form-input" placeholder="+33 6 00 00 00 00">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Type de partenariat envisagé <span>*</span></label>
+            <select class="form-select">
+              <option value="" disabled selected>Sélectionnez</option>
+              <option>Partenaire officiel (naming)</option>
+              <option>Partenaire premium (logo sur supports)</option>
+              <option>Sponsoring d'animation / scène</option>
+              <option>Partenaire média</option>
+              <option>Échange de visibilité</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Description de votre proposition <span>*</span></label>
+            <textarea class="form-textarea" placeholder="Décrivez votre proposition de partenariat, ce que vous apportez et ce que vous attendez en retour…" maxlength="1000" oninput="updateCount(this,'count-pa')"></textarea>
+            <div class="char-count" id="count-pa">0 / 1000 caractères</div>
+          </div>
+          <div class="form-group full">
+            <label class="form-check">
+              <input type="checkbox">
+              <span class="form-check-label">J'accepte la <a href="#">politique de confidentialité</a> <span style="color:var(--red)">*</span></span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+          <button class="btn btn-primary" onclick="submitForm('partenariat')" style="padding:0.9rem 2.5rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma proposition
+          </button>
+        </div>
+        <div class="success-msg" id="success-partenariat">
+          <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="success-title">Proposition reçue !</div>
+          <div class="success-sub">Notre directeur des partenariats vous contactera dans les 5 jours ouvrés pour une première discussion.</div>
+          <button class="btn btn-ghost" onclick="resetForm('partenariat')">Envoyer une nouvelle demande</button>
+        </div>
+      </div>
+
+    </div><!-- end forms -->
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-header">
+          <div class="sidebar-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.61 2.84 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16"/></svg></div>
+          <div class="sidebar-card-title">Contacts directs</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="contact-item">
+            <div class="contact-item-label">Accueil visiteurs</div>
+            <div class="contact-item-value"><a href="mailto:visiteurs@motosalon.fr">visiteurs@motosalon.fr</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-label">Service exposants</div>
+            <div class="contact-item-value"><a href="mailto:exposants@motosalon.fr">exposants@motosalon.fr</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-label">Attachée de presse</div>
+            <div class="contact-item-value"><a href="mailto:presse@motosalon.fr">presse@motosalon.fr</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-label">Partenariats</div>
+            <div class="contact-item-value"><a href="mailto:partenariats@motosalon.fr">partenariats@motosalon.fr</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-label">Téléphone standard</div>
+            <div class="contact-item-value"><a href="tel:+33142000000">+33 1 42 00 00 00</a><br><span style="font-size:0.78rem;color:var(--chrome)">Lun – Ven · 9h – 18h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-header">
+          <div class="sidebar-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="sidebar-card-title">Horaires du salon</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="hours-grid">
+            <div class="hour-row"><span class="hour-day">Vendredi 14 nov.</span><span class="hour-time">9h → 20h</span></div>
+            <div class="hour-row"><span class="hour-day">Samedi 15 nov.</span><span class="hour-time hour-special">9h → 22h</span></div>
+            <div class="hour-row"><span class="hour-day">Dimanche 16 nov.</span><span class="hour-time">9h → 20h</span></div>
+          </div>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);font-size:0.8rem;color:var(--chrome);line-height:1.6">
+            Accès montage exposants : jeu. 13 nov. 8h – 22h<br>
+            Démontage : dim. 16 nov. à partir de 20h
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-header">
+          <div class="sidebar-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div class="sidebar-card-title">Lieu & accès</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="map-placeholder" onclick="window.open('https://maps.google.com/?q=Paris+Expo+Porte+de+Versailles')">
+            <div class="map-grid"></div>
+            <div class="map-pin">
+              <div class="map-pin-dot"></div>
+              <div class="map-pin-label">Paris Expo — Hall 1</div>
+            </div>
+            <div class="map-overlay-btn">Ouvrir dans Maps →</div>
+          </div>
+          <div style="margin-top:1rem;font-size:0.85rem;color:var(--chrome-light);line-height:1.8">
+            <strong style="color:var(--white)">Paris Expo Porte de Versailles</strong><br>
+            1 Place de la Porte de Versailles<br>
+            75015 Paris — Hall 1, 2 & 3
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-header">
+          <div class="sidebar-card-icon"><svg viewBox="0 0 24 24"><path d="M21 2H3v16h5l3 3 3-3h7z"/></svg></div>
+          <div class="sidebar-card-title">Réseaux sociaux</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="social-row">
+            <a href="#" class="soc-ico" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" class="soc-ico" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="soc-ico" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/></svg></a>
+            <a href="#" class="soc-ico" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.26 8.26 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg></a>
+            <a href="#" class="soc-ico" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+          <p style="font-size:0.78rem;color:var(--chrome);margin-top:1rem;line-height:1.6">Suivez-nous pour les actualités en temps réel, coulisses du salon et live des animations.</p>
+        </div>
+      </div>
+
+    </div><!-- end sidebar -->
+  </div><!-- end contact-layout -->
+
+  <!-- FAQ -->
+  <div class="faq-section reveal">
+    <div style="margin-bottom:0.5rem;display:flex;align-items:center;gap:12px"><span style="width:28px;height:1px;background:var(--red);display:block"></span><span style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--red)">Questions fréquentes</span></div>
+    <h2 class="faq-title">Les réponses <em style="font-style:italic;color:var(--chrome-light)">aux questions les plus posées</em></h2>
+    <p class="faq-sub" style="color:var(--chrome-light)">Avant d'écrire, vérifiez si votre question n'a pas déjà sa réponse ici.</p>
+
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Peut-on acheter son billet sur place le jour J ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Oui, des billets sont disponibles à l'entrée du salon. Cependant, nous recommandons fortement la réservation en ligne pour éviter les files d'attente aux caisses. Le tarif sur place peut être légèrement supérieur au tarif internet.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Y a-t-il un tarif de groupe ou scolaire ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Oui. Pour les groupes de plus de 15 personnes, un tarif négocié est disponible sur demande. Pour les sorties scolaires et lycées professionnels, contactez-nous par e-mail à visiteurs@motosalon.fr avec les détails de votre groupe.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Le salon est-il accessible aux personnes à mobilité réduite ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Paris Expo Porte de Versailles est un espace entièrement accessible PMR. Des emplacements de parking dédiés sont disponibles à proximité de l'entrée Hall 1. Des fauteuils roulants sont prêtables à l'accueil sur demande.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Comment puis-je modifier ou annuler ma réservation ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Les billets sont échangeables jusqu'à 48h avant l'événement depuis votre espace personnel. Les remboursements sont possibles jusqu'à 7 jours avant le salon (hors frais de service). Passé ce délai, les billets ne sont pas remboursables mais restent transférables.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Peut-on amener des enfants ? Quel est l'âge minimum ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Les enfants de moins de 12 ans entrent gratuitement accompagnés d'un adulte. Le salon est ouvert à tous les âges. Le dimanche est particulièrement aménagé pour les familles avec des animations spéciales jeune public.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Comment devenir exposant ? Quels sont les délais ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Remplissez le formulaire "Devenir exposant" sur cette page. Notre équipe commerciale vous contacte sous 48h avec le dossier complet et les disponibilités. Les attributions de stands se font par ordre d'arrivée des dossiers complets signés et accompagnés d'un acompte.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Y a-t-il un parking pour les motos au salon ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Oui ! Un parking moto dédié de 800 places est disponible gratuitement sur présentation du billet, dans la zone Hall 7. Il est sécurisé et surveillé durant toutes les heures d'ouverture du salon.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Comment s'inscrire aux essais moto sur piste ?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a">Les créneaux d'essai sont réservables directement sur le stand de chaque constructeur proposant des essais. Certains exposants permettent la pré-réservation en ligne depuis leur page exposant. Présentez-vous avec votre permis A (ou A2) en cours de validité. Les Pass 3 Jours bénéficient d'un accès prioritaire.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter reveal">
+    <div class="nl-text">
+      <div class="nl-eyebrow">Newsletter MotoSalon</div>
+      <div class="nl-title">Restez informé en avant-première</div>
+      <div class="nl-sub">Actualités du salon, avant-premières exposants, offres billetterie exclusives.</div>
+    </div>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="Votre adresse e-mail">
+      <button class="btn btn-primary" onclick="subscribeNL(this)">S'abonner</button>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<footer>
+  <span class="footer-copy">© 2025 MotoSalon Paris — Tous droits réservés</span>
+  <nav class="footer-nav">
+    <a href="index.html">Accueil</a>
+    <a href="exposants.html">Exposants</a>
+    <a href="billetterie.html">Billetterie</a>
+    <a href="login.html">Mon compte</a>
+    <a href="#">Mentions légales</a>
+  </nav>
+</footer>
+
+<script>
+function setContactType(type, btn) {
+  document.querySelectorAll('.ctype-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('form-' + type).classList.add('active');
+  // Reset success messages
+  document.querySelectorAll('.success-msg').forEach(s => s.style.display = 'none');
+  document.querySelectorAll('.form-grid').forEach(g => g.style.display = 'grid');
+}
+
+function updateCount(el, countId) {
+  const count = el.value.length;
+  const max = el.getAttribute('maxlength');
+  document.getElementById(countId).textContent = count + ' / ' + max + ' caractères';
+}
+
+function submitForm(type) {
+  // Show success
+  const formEl = document.querySelector('#form-' + type + ' .form-grid');
+  if (formEl) formEl.style.display = 'none';
+  // Also hide buttons
+  const submitBtn = document.querySelector('#form-' + type + ' > div:last-of-type');
+  // Show success msg
+  document.getElementById('success-' + type).style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetForm(type) {
+  document.getElementById('success-' + type).style.display = 'none';
+  const formEl = document.querySelector('#form-' + type + ' .form-grid');
+  if (formEl) { formEl.style.display = 'grid'; formEl.reset && formEl.reset(); }
+}
+
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+function subscribeNL(btn) {
+  const input = btn.previousElementSibling;
+  if (input.value && input.value.includes('@')) {
+    btn.textContent = '✓ Abonné !';
+    btn.style.background = 'var(--success)';
+    btn.style.borderColor = 'var(--success)';
+    btn.disabled = true;
+    input.value = '';
+  }
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
